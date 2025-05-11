@@ -10,6 +10,7 @@
   <!-- Load Leaflet CSS and JS-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -51,9 +52,9 @@
   <div id="map"></div>
 
   <!-- Archive image panel -->
-  <div id="image-panel" style="padding: 20px; max-height: 500px; overflow-y: auto; background: #fff; display: none;">
+  <div id="image-panel">
     <h3>Related Archive Images</h3>
-    <div id="image-gallery" style="display: flex; flex-wrap: wrap; gap: 12px;"></div>
+    <div id="image-gallery"></div>
   </div>
 
   <script type="text/javascript">
