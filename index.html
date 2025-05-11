@@ -51,9 +51,12 @@
   <div class="loader">Loading...</div>
   <div id="map"></div>
 
-  <!-- Archive image panel -->
+  <!-- Related Archive Images Floating Panel -->
   <div id="image-panel">
-    <h3>Related Archive Images</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h3 style="margin: 0;">Related Archive Images</h3>
+      <button onclick="document.getElementById('image-panel').style.display='none'" style="background: #eee; border: none; padding: 4px 8px; cursor: pointer;">✕</button>
+    </div>
     <div id="image-gallery"></div>
   </div>
 
