@@ -174,3 +174,14 @@ h2 {
   font-size: 1.1em;
   font-weight: normal;
 }
+
+#image-panel {
+  position: relative;
+  z-index: 999;
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  display: none;
+}
