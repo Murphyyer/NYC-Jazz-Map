@@ -148,8 +148,10 @@ $(window).on('load', function() {
 
     for (i in chapters) {
       var c = chapters[i];
-
-      updateImageGallery(c['Chapter']);
+      if (typeof dplaReady !== 'undefined' && dplaReady) {
+        updateImageGallery(c['Chapter']);
+      }
+     
 
       if ( !isNaN(parseFloat(c['Latitude'])) && !isNaN(parseFloat(c['Longitude']))) {
         var lat = parseFloat(c['Latitude']);
