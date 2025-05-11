@@ -507,3 +507,36 @@ $(window).on('load', function() {
   }
 
 });
+
+// Show DPLA archive images by chapter (club name) 
+function updateImageGallery(clubName) {
+  const panel = document.getElementById("image-panel");
+  const gallery = document.getElementById("image-gallery");
+
+  // Clearing out old content
+  gallery.innerHTML = "";
+
+  if (!dplaReady || !dplaData[clubName]) {
+    panel.style.display = "none";
+    return;
+  }
+
+  const images = dplaData[clubName];
+  if (!images || images.length === 0) {
+    panel.style.display = "none";
+    return;
+  }
+
+  panel.style.display = "block";
+
+  images.forEach(item => {
+    const div = document.createElement("div");
+    div.style.width = "100%";
+    div.innerHTML = `
+      <img src="${item['Image URL']}" width="100%" alt="${item['Image Title']}">
+      <p style="font-size: 13px;">${item['Image Title']}</p>
+      <a href="${item['DPLA Record URL']}" target="_blank">View Source</a>
+    `;
+    gallery.appendChild(div);
+  });
+}
