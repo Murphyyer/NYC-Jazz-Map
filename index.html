@@ -69,14 +69,21 @@
 
   <script>
   let dplaData = {};
+  let dplaReady = false;
 
   fetch("data/dpla_images_by_club.json")
     .then(res => res.json())
     .then(json => {
       dplaData = json;
+      dplaReady = true;
     });
 
   function updateImageGallery(clubName) {
+   if (!dplaReady || !dplaData[clubName]) {
+      document.getElementById("image-panel").style.display = "none";
+      return;
+    }
+
     const gallery = document.getElementById("image-gallery");
     const panel = document.getElementById("image-panel");
     gallery.innerHTML = "";
@@ -98,9 +105,8 @@
       `;
       gallery.appendChild(div);
     });
-    }
+  }
   </script>
-
 
   <script type="text/javascript" src="google-doc-url.js"></script>
   <script type="text/javascript" src="markers/leaflet.extra-markers.min.js"></script>
