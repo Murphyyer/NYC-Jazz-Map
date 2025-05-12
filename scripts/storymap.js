@@ -395,6 +395,11 @@ $(window).on('load', function() {
           break;
         }
       }
+
+      let hashWithoutSymbol = window.location.hash.substring(1);
+      hashWithoutSymbol=hashWithoutSymbol*1-1;
+      updateImageGallery(chapters[hashWithoutSymbol]['Chapter']);
+      console.log(chapters[hashWithoutSymbol]['Chapter']);
     });
 
 
@@ -451,9 +456,8 @@ $(window).on('load', function() {
     $('div.loader').css('visibility', 'hidden');
 
     $('div#container0').addClass("in-focus");
-if (typeof dplaReady !== 'undefined' && dplaReady) {
-  updateImageGallery(chapters[i]['Chapter']);
-}
+
+    
     $('div#contents').animate({scrollTop: '1px'});
 
     // On first load, check hash and if it contains an number, scroll down
@@ -508,31 +512,33 @@ if (typeof dplaReady !== 'undefined' && dplaReady) {
     credit += ' with ';
     $('.leaflet-control-attribution')[0].innerHTML = credit + attributionHTML;
   }
-
 });
+
 
 // Show DPLA archive images by chapter (club name) 
 function updateImageGallery(clubName) {
+  // console.log(clubName);
+
   const panel = document.getElementById("image-panel");
   const gallery = document.getElementById("image-gallery");
 
   // Clearing out old content
   gallery.innerHTML = "";
 
-  if (!dplaReady || !dplaData[clubName]) {
-    panel.style.display = "none";
-    return;
-  }
+  // if (!dplaReady || !dplaData[clubName]) {
+  //   panel.style.display = "none";
+  //   return;
+  // }
 
-  const images = dplaData[clubName];
-  if (!images || images.length === 0) {
-    panel.style.display = "none";
+  const imagesq = dplaData[clubName];
+  if (!imagesq || imagesq.length === 0) {
+    // panel.style.display = "none";
     return;
   }
 
   panel.style.display = "block";
-
-  images.forEach(item => {
+  console.log(imagesq);
+  imagesq.forEach(item => {
     const div = document.createElement("div");
     div.style.width = "100%";
     div.innerHTML = `
